@@ -1,9 +1,11 @@
-package fr.insa.helperapp.usermanagementms.controller;
+package fr.insa.helperapp.userManagementMS.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import fr.insa.helperapp.usermanagementms.model.User;
-import fr.insa.helperapp.usermanagementms.repository.UserRepository;
+import org.springframework.web.client.RestTemplate;
+
+import fr.insa.helperapp.userManagementMS.model.User;
+import fr.insa.helperapp.userManagementMS.repository.UserRepository;
 
 import java.util.List;
 
@@ -13,6 +15,9 @@ public class UserResource {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private RestTemplate restTemplate;
 
     @GetMapping("/{id}")
     public User getUserById(@PathVariable int id) {
@@ -43,4 +48,3 @@ public class UserResource {
         return rowsAffected > 0 ? "User deleted successfully" : "Error deleting user";
     }
 }
-

@@ -1,10 +1,10 @@
-package fr.insa.helperapp.usermanagementms;
+package fr.insa.helperapp.userManagementMS;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UsermanagementmsApplicationTests {
+class UserManagementMsApplicationTests {
 
 	@Test
 	void contextLoads() {

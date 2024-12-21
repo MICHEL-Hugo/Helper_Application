@@ -1,16 +1,16 @@
-package fr.insa.helperapp.usermanagementms.repository;
+package fr.insa.helperapp.userManagementMS.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import fr.insa.helperapp.usermanagementms.model.User;
+import fr.insa.helperapp.userManagementMS.model.User;
 
 import java.util.List;
 
 @SpringBootApplication
-@EnableEurekaServer
+@EnableDiscoveryClient
 @Repository
 public class UserRepository {
 
@@ -59,4 +59,3 @@ public class UserRepository {
         return jdbcTemplate.update(sql, id);
     }
 }
-

@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.0</version>
+		<version>3.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fr.insa.helperapp</groupId>
-	<artifactId>usermanagementms</artifactId>
+	<artifactId>userManagementMS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>usermanagementms</name>
-	<description>User management of our helper application</description>
+	<name>userManagementMS</name>
+	<description>Management of the users of our application</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -31,8 +31,7 @@
 		<spring-cloud.version>2024.0.0</spring-cloud.version>
 	</properties>
 	<dependencies>
-	    <!-- Dépendance pour JDBC et MySQL -->
-	
+		<!-- Dépendance pour JDBC et MySQL -->
 	    <!-- Dépendance pour Spring Boot JDBC (si vous utilisez Spring Boot JDBC support) -->
 	    <dependency>
 	        <groupId>org.springframework.boot</groupId>
@@ -45,20 +44,17 @@
 	        <artifactId>mysql-connector-java</artifactId>
 	        <version>8.0.33</version> <!-- Remplacez par la version que vous souhaitez utiliser -->
 	    </dependency>
-	    
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
 		<dependency>
@@ -66,13 +62,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<dependency>
-			<groupId>fr.insa.helperapp</groupId>
-			<artifactId>config</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
