@@ -10,17 +10,20 @@
     <ul>
         <li><strong>Créer une demande :</strong> Utilisez <code>POST webapi/demandes</code> pour créer une nouvelle demande.</li>
         <li><strong>Obtenir toutes les demandes :</strong> Utilisez <code>GET webapi/demandes</code> pour récupérer la liste de toutes les demandes.</li>
+        <li><strong>Obtenir toutes les demandes en attente :</strong> Utilisez <code>GET webapi/demandes/en-attente</code> pour récupérer la liste de toutes les demandes en attente de resolver.</li>
         <li><strong>Obtenir une demande par ID :</strong> Utilisez <code>GET webapi/demandes/{id}</code> pour obtenir une demande spécifique par son ID.</li>
         <li><strong>Attribuer un resolver et changer le statut à "en cours" :</strong> Utilisez <code>PUT /demandes/{id}/resolver</code> pour assigner un resolver et mettre la demande "en cours". <br> 
             <strong>Important :</strong> Lors de cette requête, vous devez envoyer l'ID de l'utilisateur qui résout la demande dans le corps de la requête.
             
         </li>
         <li><strong>Marquer la demande comme terminée :</strong> Utilisez <code>PUT /demandes/{id}/terminer</code> pour marquer une demande comme "terminée".</li>
+        <li><strong>Supprimer une demande :</strong> Utilisez <code>DELETE /demandes/{id}</code> pour supprimer la demande</li>
     </ul>
     
     <h3>Lien :</h3>
     <ul>
         <li><a href="webapi/demandes">Voir toutes les demandes, ajoutez /{id} pour consulter une demande en particulier</a></li>
+        <li><a href="webapi/demandes/en-attente">Voir toutes les demandes en attente de resolver.</a></li>
         
     </ul>
 

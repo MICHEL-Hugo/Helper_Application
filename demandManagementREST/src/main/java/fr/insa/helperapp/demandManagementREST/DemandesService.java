@@ -57,10 +57,10 @@ public class DemandesService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Demande createDemande(Demande demande) {
-        demande.setId(currentId++);
-        demandes.add(demande);
-        saveDemandesToFile(); 
-        return demande;
+        Demande nouvelleDemande = new Demande(currentId++, demande.getName(), demande.getDescription(), demande.getAuthor());
+        demandes.add(nouvelleDemande);
+        saveDemandesToFile();
+        return nouvelleDemande;
     }
 
     @PUT
@@ -98,6 +98,19 @@ public class DemandesService {
     public List<Demande> getDemandes() {
         return demandes;
     }
+    @GET
+    @Path("/en-attente")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Demande> getDemandesEnAttente() {
+        List<Demande> demandesEnAttente = new ArrayList<>();
+        for (Demande demande : demandes) {
+            if ("en attente".equals(demande.getStatus())) {
+                demandesEnAttente.add(demande);
+            }
+        }
+        return demandesEnAttente;
+    }
+
 
     @GET
     @Path("{id}")
