@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/requests")
+@RequestMapping("/api/demand")
 public class demandManagement {
 
     @Autowired
@@ -20,7 +20,7 @@ public class demandManagement {
 
     @GetMapping
     public List<demandModel> getAllRequests() {
-        System.out.println("GET /api/requests has been called");
+        System.out.println("GET /demand has been called");
 
         List<demandModel> demands = demandService.getAllRequests();
 
@@ -28,7 +28,7 @@ public class demandManagement {
     }
 
     @GetMapping("/{id}")
-    public demandModel getRequestById(@PathVariable Long id) {
+    public demandModel getRequestById(@PathVariable int id) {
         return demandService.getRequestById(id);
     }
 
@@ -38,13 +38,13 @@ public class demandManagement {
     }
 
     @PutMapping("/{id}")
-    public void updateRequest(@PathVariable Long id, @RequestBody demandModel demand) {
+    public void updateRequest(@PathVariable int id, @RequestBody demandModel demand) {
         demand.setId(id);
         demandService.updateRequest(demand);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteRequest(@PathVariable Long id) {
+    public void deleteRequest(@PathVariable int id) {
         demandService.deleteRequest(id);
     }
 }

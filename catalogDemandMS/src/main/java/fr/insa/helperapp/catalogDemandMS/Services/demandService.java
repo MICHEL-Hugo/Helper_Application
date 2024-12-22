@@ -24,7 +24,7 @@ public class demandService {
         @Override
         public demandModel mapRow(ResultSet rs, int rowNum) throws SQLException {
             return new demandModel(
-                    rs.getLong("id"),
+                    rs.getInt("id"),
                     rs.getString("name"),
                     rs.getString("description"),
                     rs.getString("author") 
@@ -37,7 +37,7 @@ public class demandService {
         return jdbcTemplate.query(sql, new DemandRowMapper());
     }
 
-    public demandModel getRequestById(Long id) {
+    public demandModel getRequestById(int id) {
         String sql = "SELECT * FROM demand WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, new DemandRowMapper(), id);
     }
@@ -52,7 +52,7 @@ public class demandService {
         jdbcTemplate.update(sql, demand.getName(), demand.getDescription(), demand.getAuthor(), demand.getId());
     }
 
-    public void deleteRequest(Long id) {
+    public void deleteRequest(int id) {
         String sql = "DELETE FROM demand WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }

@@ -19,41 +19,41 @@ public class StatusRepository {
 
     // Créer un statut
     public int createStatus(Status status) {
-        String sql = "INSERT INTO status (id, status) VALUES (?, ?)";
+        String sql = "INSERT INTO status_table (id, status_var) VALUES (?, ?)";
         return jdbcTemplate.update(sql, status.getId(), status.getStatus());
     }
 
     // Trouver un statut par ID
     public Status getStatusById(int id) {
-        String sql = "SELECT * FROM status WHERE id = ?";
+        String sql = "SELECT * FROM status_table WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{id}, (rs, rowNum) -> {
             Status status = new Status();
             status.setId(rs.getInt("id"));
-            status.setStatus(rs.getString("status"));
+            status.setStatus(rs.getString("status_var"));
             return status;
         });
     }
 
     // Récupérer tous les statuts
     public List<Status> getAllStatuses() {
-        String sql = "SELECT * FROM status";
+        String sql = "SELECT * FROM status_table";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             Status status = new Status();
             status.setId(rs.getInt("id"));
-            status.setStatus(rs.getString("status"));
+            status.setStatus(rs.getString("status_var"));
             return status;
         });
     }
 
     // Mettre à jour un statut
     public int updateStatus(Status status) {
-        String sql = "UPDATE status SET status = ? WHERE id = ?";
+        String sql = "UPDATE status_table SET status_var = ? WHERE id = ?";
         return jdbcTemplate.update(sql, status.getStatus(), status.getId());
     }
 
     // Supprimer un statut
     public int deleteStatus(int id) {
-        String sql = "DELETE FROM status WHERE id = ?";
+        String sql = "DELETE FROM status_table WHERE id = ?";
         return jdbcTemplate.update(sql, id);
     }
 }
