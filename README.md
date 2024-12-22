@@ -75,9 +75,9 @@ As part of the development of this project, RESTful services were implemented to
 2. **statusDemandMS**  
    Manages the statuses of requests (e.g., "waiting", "taken", "completed").  
    API Endpoints:
-   - `POST /api/status` - Create a new waiting request.
+   - `POST /api/status/{id}` - Create a new waiting request.
    - `PUT /api/status` - Update the status of a request.
-   - `GET /api/status` - Get all the request.
+   - `GET /api/status/{id}` - Get all the request.
 
 4. **userManagementMS**  
    Manages the users (volunteers and requesters).  
@@ -91,7 +91,8 @@ As part of the development of this project, RESTful services were implemented to
 5. **whoIsTheResolverMS**  
    Manages volunteer assignments.  
    API Endpoints:
-   - `PUT /api/resolvers/{id}` - Assign a volunteer to a request.
+   - `GET /api/resolvers/{id}` - list resolver's demands
+   - `POST /api/resolvers/{id}` - Assign a volunteer to a request.
 
 ### Discovery and Configuration Services
 
