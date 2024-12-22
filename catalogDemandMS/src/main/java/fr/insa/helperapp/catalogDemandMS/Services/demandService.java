@@ -26,7 +26,8 @@ public class demandService {
             return new demandModel(
                     rs.getLong("id"),
                     rs.getString("name"),
-                    rs.getString("description")
+                    rs.getString("description"),
+                    rs.getString("author") 
             );
         }
     }
@@ -41,15 +42,14 @@ public class demandService {
         return jdbcTemplate.queryForObject(sql, new DemandRowMapper(), id);
     }
 
-
     public void addRequest(demandModel demand) {
-        String sql = "INSERT INTO demand (name, description) VALUES (?, ?)";
-        jdbcTemplate.update(sql, demand.getName(), demand.getDescription());
+        String sql = "INSERT INTO demand (name, description, author) VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql, demand.getName(), demand.getDescription(), demand.getAuthor());
     }
 
     public void updateRequest(demandModel demand) {
-        String sql = "UPDATE demand SET name = ?, description = ?,WHERE id = ?";
-        jdbcTemplate.update(sql, demand.getName(), demand.getDescription(), demand.getId());
+        String sql = "UPDATE demand SET name = ?, description = ?, author = ? WHERE id = ?";
+        jdbcTemplate.update(sql, demand.getName(), demand.getDescription(), demand.getAuthor(), demand.getId());
     }
 
     public void deleteRequest(Long id) {
