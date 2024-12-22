@@ -67,8 +67,7 @@ public class ResolverResource {
         HttpEntity<String> request = new HttpEntity<>(jsonPayload, headers);
 
         // Effectuer la requête PATCH vers le microservice statusDemandMS
-        restTemplate.patchForObject(
-            "http://statusDemandMS/api/status/" + newResolving.getId(), request, Void.class);
+        restTemplate.put("http://statusDemandMS/api/status/" + newResolving.getId(), request);
 
         return rowsAffected > 0 ? "Resolver created successfully" : "Error creating resolver";
     }
