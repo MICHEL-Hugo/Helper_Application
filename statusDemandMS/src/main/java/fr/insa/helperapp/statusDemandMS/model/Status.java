@@ -3,6 +3,15 @@ package fr.insa.helperapp.statusDemandMS.model;
 public class Status {
     private int id;
     private String status;
+
+    // Constructeur avec paramètres pour initialiser id et status
+    public Status(int id, String status) {
+        this.id = id;
+        this.status = status;
+    }
+    
+    public Status() {
+    }
     
 	public int getId() {
 		return id;

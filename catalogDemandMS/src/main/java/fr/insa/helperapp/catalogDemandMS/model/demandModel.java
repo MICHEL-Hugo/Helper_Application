@@ -1,23 +1,23 @@
 package fr.insa.helperapp.catalogDemandMS.model;
 
 public class demandModel {
-    private Long id;
+    private int id;
     private String name;
     private String description;
     private String author; 
 
-    public demandModel(Long id, String name, String description, String author) {
+    public demandModel(int id, String name, String description, String author) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.author = author;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
