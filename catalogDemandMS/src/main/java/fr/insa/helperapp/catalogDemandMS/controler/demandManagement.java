@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/requests")
+@RequestMapping("/demands")
 public class demandManagement {
 
     @Autowired
