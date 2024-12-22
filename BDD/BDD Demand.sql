@@ -21,7 +21,7 @@ CREATE TABLE status_table (
     status_var VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE resolver (
+CREATE TABLE resolver_table (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     resolver VARCHAR(255) NOT NULL
 );
