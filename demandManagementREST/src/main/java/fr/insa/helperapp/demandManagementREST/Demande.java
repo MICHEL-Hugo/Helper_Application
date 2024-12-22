@@ -8,7 +8,6 @@ public class Demande {
     private String status;
     private String resolver;
 
-    // Constructeur sans argument (par défaut)
     public Demande() {
     }
 
@@ -17,11 +16,10 @@ public class Demande {
         this.name = name;
         this.description = description;
         this.author = author;
-        this.status = "en attente"; // Statut par défaut
-        this.resolver = null; // Pas de resolver initialement
+        this.status = "en attente"; 
+        this.resolver = null; 
     }
 
-    // Getters et Setters
     public int getId() {
         return id;
     }
