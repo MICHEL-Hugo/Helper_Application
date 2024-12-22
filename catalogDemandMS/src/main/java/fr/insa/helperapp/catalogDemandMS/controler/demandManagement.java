@@ -4,6 +4,7 @@ import fr.insa.helperapp.catalogDemandMS.model.demandModel;
 import fr.insa.helperapp.catalogDemandMS.Services.demandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -13,6 +14,9 @@ public class demandManagement {
 
     @Autowired
     private demandService demandService;
+    
+    @Autowired
+    private RestTemplate restTemplate;
 
     @GetMapping
     public List<demandModel> getAllRequests() {
