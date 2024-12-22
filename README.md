@@ -66,30 +66,32 @@ As part of the development of this project, RESTful services were implemented to
 1. **catalogDemandMS**  
    Manages the demands (requests for help). This service handles the creation, listing, and deletion of requests.  
    API Endpoints:
-   - `POST /demands` - Create a new request.
-   - `GET /demands` - List all requests.
-   - `GET /demands/{id}` - Get details of a specific request.
-   - `PUT /demands/{id}` - Update a request.
-   - `DELETE /demands/{id}` - Delete a request.
+   - `POST /api/demand` - Create a new request.
+   - `GET /api/demand` - List all requests.
+   - `GET /api/demand/{id}` - Get details of a specific request.
+   - `PUT /api/demand/{id}` - Update a request.
+   - `DELETE /api/demand/{id}` - Delete a request.
 
 2. **statusDemandMS**  
    Manages the statuses of requests (e.g., "waiting", "taken", "completed").  
    API Endpoints:
-   - `PATCH /requests/{id}/status` - Update the status of a request.
+   - `POST /api/status` - Create a new waiting request.
+   - `PUT /api/status` - Update the status of a request.
+   - `GET /api/status` - Get all the request.
 
-3. **userManagementMS**  
+4. **userManagementMS**  
    Manages the users (volunteers and requesters).  
    API Endpoints:
-   - `POST /users` - Add a new user.
-   - `GET /users` - List all users.
-   - `GET /users/{id}` - Get user details by ID.
-   - `PUT /users/{id}` - Update user information.
-   - `DELETE /users/{id}` - Delete a user.
+   - `POST /api/user` - Add a new user.
+   - `GET /api/user` - List all users.
+   - `GET /api/user/{id}` - Get user details by ID.
+   - `PUT /api/user/{id}` - Update user information.
+   - `DELETE /api/user/{id}` - Delete a user.
 
-4. **whoIsTheResolverMS**  
+5. **whoIsTheResolverMS**  
    Manages volunteer assignments.  
    API Endpoints:
-   - `PATCH /requests/{id}` - Assign a volunteer to a request.
+   - `PUT /api/resolvers/{id}` - Assign a volunteer to a request.
 
 ### Discovery and Configuration Services
 
@@ -121,7 +123,7 @@ The application workflow involves several steps as users interact with the syste
    - Users can view all requests that are in the "waiting" status by sending a `GET` request to **statusDemandMS**, which fetches the corresponding requests from **catalogDemandMS**.
 
 3. **Taking Ownership of a Request**:  
-   - When a volunteer wishes to take a request, they send a `PATCH` request to **whoIsTheResolverMS**, associating their ID with the request ID.
+   - When a volunteer wishes to take a request, they send a `PUT` request to **whoIsTheResolverMS**, associating their ID with the request ID.
    - A `PUT` request is sent to **statusDemandMS** to update the status of the request to "taken."
 
 4. **Completing a Request**:  
@@ -225,23 +227,23 @@ Once the **Discovery** and **Config Services** are up, start each of the followi
 After all services are up and running, you can test the application using Postman or any other API client. Below are some key endpoints you can use to interact with the platform:
 
 - **Create a Request**:
-  - `POST /demands`  
+  - `POST /api/status`  
     Creates a new request for assistance.
 
 - **Get Pending Requests**:
-  - `GET /requests/en-attente`  
-    Retrieves all requests that are in the "waiting" status.
+  - `GET /api/status`  
+    Retrieves all requests.
 
 - **Assign a Volunteer to a Request**:
-  - `PATCH /requests/{id}`  
+  - `PUT /api/resolvers`  
     Assign a volunteer to a specific request.
 
 - **Update Request Status**:
-  - `PATCH /requests/{id}/status`  
+  - `PUT /api/status`  
     Updates the status of a request (e.g., from "waiting" to "taken" or "completed").
 
 - **List All Users**:
-  - `GET /users`  
+  - `GET /api/user`  
     Retrieves a list of all users (volunteers and requesters).
 
 ## Testing the Workflow
